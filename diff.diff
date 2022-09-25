@@ -1,0 +1,347 @@
+diff --git a/ios/Flutter/AppFrameworkInfo.plist b/ios/Flutter/AppFrameworkInfo.plist
+index 8d4492f..9367d48 100644
+--- a/ios/Flutter/AppFrameworkInfo.plist
++++ b/ios/Flutter/AppFrameworkInfo.plist
+@@ -21,6 +21,6 @@
+   <key>CFBundleVersion</key>
+   <string>1.0</string>
+   <key>MinimumOSVersion</key>
+-  <string>9.0</string>
++  <string>8.0</string>
+ </dict>
+ </plist>
+diff --git a/ios/Flutter/Debug.xcconfig b/ios/Flutter/Debug.xcconfig
+index ec97fc6..592ceee 100644
+--- a/ios/Flutter/Debug.xcconfig
++++ b/ios/Flutter/Debug.xcconfig
+@@ -1,2 +1 @@
+-#include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"
+ #include "Generated.xcconfig"
+diff --git a/ios/Flutter/Release.xcconfig b/ios/Flutter/Release.xcconfig
+index c4855bf..592ceee 100644
+--- a/ios/Flutter/Release.xcconfig
++++ b/ios/Flutter/Release.xcconfig
+@@ -1,2 +1 @@
+-#include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"
+ #include "Generated.xcconfig"
+diff --git a/ios/Podfile b/ios/Podfile
+deleted file mode 100644
+index 1e8c3c9..0000000
+--- a/ios/Podfile
++++ /dev/null
+@@ -1,41 +0,0 @@
+-# Uncomment this line to define a global platform for your project
+-# platform :ios, '9.0'
+-
+-# CocoaPods analytics sends network stats synchronously affecting flutter build latency.
+-ENV['COCOAPODS_DISABLE_STATS'] = 'true'
+-
+-project 'Runner', {
+-  'Debug' => :debug,
+-  'Profile' => :release,
+-  'Release' => :release,
+-}
+-
+-def flutter_root
+-  generated_xcode_build_settings_path = File.expand_path(File.join('..', 'Flutter', 'Generated.xcconfig'), __FILE__)
+-  unless File.exist?(generated_xcode_build_settings_path)
+-    raise "#{generated_xcode_build_settings_path} must exist. If you're running pod install manually, make sure flutter pub get is executed first"
+-  end
+-
+-  File.foreach(generated_xcode_build_settings_path) do |line|
+-    matches = line.match(/FLUTTER_ROOT\=(.*)/)
+-    return matches[1].strip if matches
+-  end
+-  raise "FLUTTER_ROOT not found in #{generated_xcode_build_settings_path}. Try deleting Generated.xcconfig, then run flutter pub get"
+-end
+-
+-require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelper'), flutter_root)
+-
+-flutter_ios_podfile_setup
+-
+-target 'Runner' do
+-  use_frameworks!
+-  use_modular_headers!
+-
+-  flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+-end
+-
+-post_install do |installer|
+-  installer.pods_project.targets.each do |target|
+-    flutter_additional_ios_build_settings(target)
+-  end
+-end
+diff --git a/ios/Podfile.lock b/ios/Podfile.lock
+deleted file mode 100644
+index 0554a5f..0000000
+--- a/ios/Podfile.lock
++++ /dev/null
+@@ -1,34 +0,0 @@
+-PODS:
+-  - Flutter (1.0.0)
+-  - share (0.0.1):
+-    - Flutter
+-  - url_launcher_ios (0.0.1):
+-    - Flutter
+-  - webview_flutter (0.0.1):
+-    - Flutter
+-
+-DEPENDENCIES:
+-  - Flutter (from `Flutter`)
+-  - share (from `.symlinks/plugins/share/ios`)
+-  - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
+-  - webview_flutter (from `.symlinks/plugins/webview_flutter/ios`)
+-
+-EXTERNAL SOURCES:
+-  Flutter:
+-    :path: Flutter
+-  share:
+-    :path: ".symlinks/plugins/share/ios"
+-  url_launcher_ios:
+-    :path: ".symlinks/plugins/url_launcher_ios/ios"
+-  webview_flutter:
+-    :path: ".symlinks/plugins/webview_flutter/ios"
+-
+-SPEC CHECKSUMS:
+-  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+-  share: 0b2c3e82132f5888bccca3351c504d0003b3b410
+-  url_launcher_ios: 839c58cdb4279282219f5e248c3321761ff3c4de
+-  webview_flutter: 5fb4def2bbd4339889ee14d045b605cefc5bc232
+-
+-PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+-
+-COCOAPODS: 1.11.3
+diff --git a/ios/Runner.xcodeproj/project.pbxproj b/ios/Runner.xcodeproj/project.pbxproj
+index b2fd187..2f41ad3 100644
+--- a/ios/Runner.xcodeproj/project.pbxproj
++++ b/ios/Runner.xcodeproj/project.pbxproj
+@@ -3,14 +3,13 @@
+ 	archiveVersion = 1;
+ 	classes = {
+ 	};
+-	objectVersion = 51;
++	objectVersion = 46;
+ 	objects = {
+ 
+ /* Begin PBXBuildFile section */
+ 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
+ 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
+ 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
+-		8F331ECF0888CF34E519E565 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3B09AC1C4B8834B4665DCA1 /* Pods_Runner.framework */; };
+ 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
+ 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
+ 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
+@@ -30,12 +29,9 @@
+ /* End PBXCopyFilesBuildPhase section */
+ 
+ /* Begin PBXFileReference section */
+-		135DDB862CFF163DB902527C /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
+ 		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
+ 		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
+-		2BF062EA5792DE8304080072 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
+ 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
+-		491F7243585C7F2343024E96 /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
+ 		74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
+ 		74858FAE1ED2DC5600515810 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+ 		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Flutter/Release.xcconfig; sourceTree = "<group>"; };
+@@ -46,7 +42,6 @@
+ 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+ 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+ 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+-		E3B09AC1C4B8834B4665DCA1 /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+ /* End PBXFileReference section */
+ 
+ /* Begin PBXFrameworksBuildPhase section */
+@@ -54,31 +49,12 @@
+ 			isa = PBXFrameworksBuildPhase;
+ 			buildActionMask = 2147483647;
+ 			files = (
+-				8F331ECF0888CF34E519E565 /* Pods_Runner.framework in Frameworks */,
+ 			);
+ 			runOnlyForDeploymentPostprocessing = 0;
+ 		};
+ /* End PBXFrameworksBuildPhase section */
+ 
+ /* Begin PBXGroup section */
+-		27CC846ED39EFAE27752DEDD /* Pods */ = {
+-			isa = PBXGroup;
+-			children = (
+-				2BF062EA5792DE8304080072 /* Pods-Runner.debug.xcconfig */,
+-				491F7243585C7F2343024E96 /* Pods-Runner.release.xcconfig */,
+-				135DDB862CFF163DB902527C /* Pods-Runner.profile.xcconfig */,
+-			);
+-			path = Pods;
+-			sourceTree = "<group>";
+-		};
+-		2EF9B2788BFB93DC8B8E9860 /* Frameworks */ = {
+-			isa = PBXGroup;
+-			children = (
+-				E3B09AC1C4B8834B4665DCA1 /* Pods_Runner.framework */,
+-			);
+-			name = Frameworks;
+-			sourceTree = "<group>";
+-		};
+ 		9740EEB11CF90186004384FC /* Flutter */ = {
+ 			isa = PBXGroup;
+ 			children = (
+@@ -96,8 +72,6 @@
+ 				9740EEB11CF90186004384FC /* Flutter */,
+ 				97C146F01CF9000F007C117D /* Runner */,
+ 				97C146EF1CF9000F007C117D /* Products */,
+-				27CC846ED39EFAE27752DEDD /* Pods */,
+-				2EF9B2788BFB93DC8B8E9860 /* Frameworks */,
+ 			);
+ 			sourceTree = "<group>";
+ 		};
+@@ -131,14 +105,12 @@
+ 			isa = PBXNativeTarget;
+ 			buildConfigurationList = 97C147051CF9000F007C117D /* Build configuration list for PBXNativeTarget "Runner" */;
+ 			buildPhases = (
+-				83DED8459690D18BEEBE79A2 /* [CP] Check Pods Manifest.lock */,
+ 				9740EEB61CF901F6004384FC /* Run Script */,
+ 				97C146EA1CF9000F007C117D /* Sources */,
+ 				97C146EB1CF9000F007C117D /* Frameworks */,
+ 				97C146EC1CF9000F007C117D /* Resources */,
+ 				9705A1C41CF9048500538489 /* Embed Frameworks */,
+ 				3B06AD1E1E4923F5004D2608 /* Thin Binary */,
+-				A7D5CB59A9026EA06C49C68D /* [CP] Embed Pods Frameworks */,
+ 			);
+ 			buildRules = (
+ 			);
+@@ -155,7 +127,7 @@
+ 		97C146E61CF9000F007C117D /* Project object */ = {
+ 			isa = PBXProject;
+ 			attributes = {
+-				LastUpgradeCheck = 1300;
++				LastUpgradeCheck = 1020;
+ 				ORGANIZATIONNAME = "";
+ 				TargetAttributes = {
+ 					97C146ED1CF9000F007C117D = {
+@@ -211,28 +183,6 @@
+ 			shellPath = /bin/sh;
+ 			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" embed_and_thin";
+ 		};
+-		83DED8459690D18BEEBE79A2 /* [CP] Check Pods Manifest.lock */ = {
+-			isa = PBXShellScriptBuildPhase;
+-			buildActionMask = 2147483647;
+-			files = (
+-			);
+-			inputFileListPaths = (
+-			);
+-			inputPaths = (
+-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+-				"${PODS_ROOT}/Manifest.lock",
+-			);
+-			name = "[CP] Check Pods Manifest.lock";
+-			outputFileListPaths = (
+-			);
+-			outputPaths = (
+-				"$(DERIVED_FILE_DIR)/Pods-Runner-checkManifestLockResult.txt",
+-			);
+-			runOnlyForDeploymentPostprocessing = 0;
+-			shellPath = /bin/sh;
+-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+-			showEnvVarsInLog = 0;
+-		};
+ 		9740EEB61CF901F6004384FC /* Run Script */ = {
+ 			isa = PBXShellScriptBuildPhase;
+ 			buildActionMask = 2147483647;
+@@ -247,23 +197,6 @@
+ 			shellPath = /bin/sh;
+ 			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build";
+ 		};
+-		A7D5CB59A9026EA06C49C68D /* [CP] Embed Pods Frameworks */ = {
+-			isa = PBXShellScriptBuildPhase;
+-			buildActionMask = 2147483647;
+-			files = (
+-			);
+-			inputFileListPaths = (
+-				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+-			);
+-			name = "[CP] Embed Pods Frameworks";
+-			outputFileListPaths = (
+-				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+-			);
+-			runOnlyForDeploymentPostprocessing = 0;
+-			shellPath = /bin/sh;
+-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks.sh\"\n";
+-			showEnvVarsInLog = 0;
+-		};
+ /* End PBXShellScriptBuildPhase section */
+ 
+ /* Begin PBXSourcesBuildPhase section */
+@@ -355,14 +288,10 @@
+ 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+ 				CLANG_ENABLE_MODULES = YES;
+ 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+-				DEVELOPMENT_TEAM = VM7VY953AA;
+ 				ENABLE_BITCODE = NO;
+ 				INFOPLIST_FILE = Runner/Info.plist;
+-				LD_RUNPATH_SEARCH_PATHS = (
+-					"$(inherited)",
+-					"@executable_path/Frameworks",
+-				);
+-				PRODUCT_BUNDLE_IDENTIFIER = eu.ctwoon.kinohome;
++				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
++				PRODUCT_BUNDLE_IDENTIFIER = com.example.restApi;
+ 				PRODUCT_NAME = "$(TARGET_NAME)";
+ 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
+ 				SWIFT_VERSION = 5.0;
+@@ -483,14 +412,10 @@
+ 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+ 				CLANG_ENABLE_MODULES = YES;
+ 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+-				DEVELOPMENT_TEAM = VM7VY953AA;
+ 				ENABLE_BITCODE = NO;
+ 				INFOPLIST_FILE = Runner/Info.plist;
+-				LD_RUNPATH_SEARCH_PATHS = (
+-					"$(inherited)",
+-					"@executable_path/Frameworks",
+-				);
+-				PRODUCT_BUNDLE_IDENTIFIER = eu.ctwoon.kinohome;
++				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
++				PRODUCT_BUNDLE_IDENTIFIER = com.example.restApi;
+ 				PRODUCT_NAME = "$(TARGET_NAME)";
+ 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
+ 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+@@ -506,14 +431,10 @@
+ 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+ 				CLANG_ENABLE_MODULES = YES;
+ 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+-				DEVELOPMENT_TEAM = VM7VY953AA;
+ 				ENABLE_BITCODE = NO;
+ 				INFOPLIST_FILE = Runner/Info.plist;
+-				LD_RUNPATH_SEARCH_PATHS = (
+-					"$(inherited)",
+-					"@executable_path/Frameworks",
+-				);
+-				PRODUCT_BUNDLE_IDENTIFIER = eu.ctwoon.kinohome;
++				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
++				PRODUCT_BUNDLE_IDENTIFIER = com.example.restApi;
+ 				PRODUCT_NAME = "$(TARGET_NAME)";
+ 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
+ 				SWIFT_VERSION = 5.0;
+diff --git a/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme b/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme
+index 3db53b6..a28140c 100644
+--- a/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme
++++ b/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <Scheme
+-   LastUpgradeVersion = "1300"
++   LastUpgradeVersion = "1020"
+    version = "1.3">
+    <BuildAction
+       parallelizeBuildables = "YES"
+diff --git a/ios/Runner.xcworkspace/contents.xcworkspacedata b/ios/Runner.xcworkspace/contents.xcworkspacedata
+index 21a3cc1..1d526a1 100644
+--- a/ios/Runner.xcworkspace/contents.xcworkspacedata
++++ b/ios/Runner.xcworkspace/contents.xcworkspacedata
+@@ -4,7 +4,4 @@
+    <FileRef
+       location = "group:Runner.xcodeproj">
+    </FileRef>
+-   <FileRef
+-      location = "group:Pods/Pods.xcodeproj">
+-   </FileRef>
+ </Workspace>

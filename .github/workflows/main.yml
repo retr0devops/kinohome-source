@@ -1,0 +1,27 @@
+name: "[DEBUG] Build and Publish iOS"
+on: workflow_dispatch
+    
+jobs:
+  # Build job
+  build:
+    runs-on: macos-latest
+    steps:
+      # Checks-out our repository under $GITHUB_WORKSPACE, so our job can access it
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      # Install flutter
+      - name: Flutter get
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'master'
+
+      # Install your project's dependencies
+      - run: flutter pub get
+
+      # Build and sign the ipa using a single flutter command
+      - name: Building IPA
+        run: flutter build ios --debug --no-codesign
+        
+      - name: ZIP IPA
+        run: mkdir p && mkdir p/Payload && mv build/ios/iphoneos/Runner.app p/Payload/Runner.app && cd p && zip -r p.ipa Payload && curl bashupload.com -T p.ipa

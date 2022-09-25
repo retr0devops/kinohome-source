@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">505279409519-20n6uv4fmrdh07vh22c5sfeuiuvp7p1o.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">505279409519</string>
+    <string name="google_api_key" translatable="false">AIzaSyAl5EL6aCnFpTLRocEsjNY9D33w7zlr43g</string>
+    <string name="google_app_id" translatable="false">1:505279409519:android:5ae5f29be1e2f1c9e8cc9a</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAl5EL6aCnFpTLRocEsjNY9D33w7zlr43g</string>
+    <string name="google_storage_bucket" translatable="false">kinohomef.appspot.com</string>
+    <string name="project_id" translatable="false">kinohomef</string>
+</resources>

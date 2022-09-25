@@ -1,0 +1,25 @@
+[√] Flutter (Channel stable, 2.2.1, on Microsoft Windows [Version 10.0.19043.1021], locale ru-RU)
+    • Flutter version 2.2.1 at C:\flutter
+    • Framework revision 02c026b03c (3 weeks ago), 2021-05-27 12:24:44 -0700
+    • Engine revision 0fdb562ac8
+    • Dart version 2.13.1
+
+[!] Android toolchain - develop for Android devices (Android SDK version 30.0.3)
+    • Android SDK at C:\Users\2\AppData\Local\Android\sdk
+    • Platform android-30, build-tools 30.0.3
+    • Java binary at: C:\Program Files\BellSoft\LibericaJDK-8-Full\bin\java
+    • Java version OpenJDK Runtime Environment (build 1.8.0_292-b10)
+    ! Some Android licenses not accepted.  To resolve this, run: flutter doctor --android-licenses
+
+[√] Chrome - develop for the web
+    • Chrome at C:\Program Files\Google\Chrome\Application\chrome.exe
+
+[!] Android Studio (not installed)
+    • Android Studio not found; download from https://developer.android.com/studio/index.html
+      (or visit https://flutter.dev/docs/get-started/install/windows#android-setup for detailed instructions).
+
+[√] Connected device (2 available)
+    • Pixel 4a 5G (mobile) • 12ecad7 • android-arm64  • Android 11 (API 30)
+    • Chrome (web)         • chrome  • web-javascript • Google Chrome 91.0.4472.101
+
+! Doctor found issues in 2 categories.

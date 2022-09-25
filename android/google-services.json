@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "505279409519",
+    "project_id": "kinohomef",
+    "storage_bucket": "kinohomef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:505279409519:android:5ae5f29be1e2f1c9e8cc9a",
+        "android_client_info": {
+          "package_name": "eu.ctwoon.kinohome"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "505279409519-ou4ip6e4c4ajb05qr7e4rgfkjigb208b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "eu.ctwoon.kinohome",
+            "certificate_hash": "cf0c4aaa5b0d51844b37175c153d77d9f8e3a26a"
+          }
+        },
+        {
+          "client_id": "505279409519-20n6uv4fmrdh07vh22c5sfeuiuvp7p1o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAl5EL6aCnFpTLRocEsjNY9D33w7zlr43g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "505279409519-20n6uv4fmrdh07vh22c5sfeuiuvp7p1o.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "505279409519-u5aq9vvk0gtlqh3dqo4moc06fpvfj8ik.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "eu.ctwoon.kinohome"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
