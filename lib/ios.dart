@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
           barBackgroundColor: CupertinoColors.black,
           primaryColor: accentId[SpUtil.getInt("accent", defValue: 0)!],
           brightness: Brightness.dark),
-      title: 'KinoHome',
+      title: 'KinoHomeTest',
       home: TabHomePage(),
     );
   }
@@ -56,7 +56,7 @@ class TabHomePage extends StatefulWidget {
 
 class _TabHomePageState extends State<TabHomePage> {
   List<Widget> _tabs = [
-    MyHomePage(title: "KinoHome"),
+    MyHomePage(title: "KinoHomeTest"),
     SearchRoute(),
     ProfileRoute()
   ];
@@ -83,7 +83,7 @@ class _TabHomePageState extends State<TabHomePage> {
               return <Widget>[
                 CupertinoSliverNavigationBar(
                   backgroundColor: CupertinoColors.black,
-                  largeTitle: Text('KinoHome'),
+                  largeTitle: Text('KinoHomeTest'),
                 )
               ];
             },
