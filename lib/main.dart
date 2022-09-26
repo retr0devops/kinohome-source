@@ -33,7 +33,7 @@ void main() async {
       if (premiumList.body.contains(id)) {
         globals.isPremium = true;
       } else {
-        globals.isPremium = true;
+        globals.isPremium = false;
         initAds();
       }
     } else {
@@ -42,7 +42,7 @@ void main() async {
       var premiumList = await http
           .get(Uri.parse("https://ctwoon.github.io/kinoplus/premium.txt"));
       if (!premiumList.body.contains(userEmail!)) {
-        globals.isPremium = true;
+        globals.isPremium = false;
         initAds();
       } else {
         globals.isPremium = true;
@@ -53,7 +53,7 @@ void main() async {
         await http.get(Uri.parse("https://ctwoon.github.io/kinoplus/ios.txt"));
     if (!premiumListIOS.body
         .contains(SpUtil.getString("iosid", defValue: "")!)) {
-      globals.isPremium = true;
+      globals.isPremium = false;
       initAds();
     } else {
       globals.isPremium = true;
