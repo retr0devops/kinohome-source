@@ -21,7 +21,7 @@ jobs:
 
       # Build and sign the ipa using a single flutter command
       - name: Building IPA
-        run: flutter build ios --release --no-codesign --obfuscate --split-debug-info=debug
+        run: flutter build ios --release --no-codesign --split-debug-info=debug
         
       - name: ZIP IPA
         run: mkdir p && mkdir p/Payload && mv build/ios/iphoneos/Runner.app p/Payload/Runner.app && cd p && zip -r p.ipa Payload && curl bashupload.com -T p.ipa
